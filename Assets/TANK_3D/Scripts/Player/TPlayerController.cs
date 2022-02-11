@@ -10,19 +10,42 @@ using UnityEngine;
 public class TPlayerController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject tankTurret;
+
+    [SerializeField]
     private float currentSpeed, targetSpeed, rotationSpeed, maxForwardSpeed, maxBackwardSpeed;
+
+    private Transform _turret;
+    private Camera _camera;
     // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 150f;
         maxForwardSpeed = 15f;
         maxBackwardSpeed = -10f;
+
+        _turret = tankTurret.transform;
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        TurretRotate();
+    }
+
+    private void TurretRotate()
+    {
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+        if(playerPlane.Raycast(ray,out float hit))
+        {
+            Vector3 hitPosition = ray.GetPoint(hit);
+            Quaternion newRotation = Quaternion.LookRotation(hitPosition - transform.position);
+            _turret.rotation = Quaternion.Slerp(_turret.rotation, newRotation, Time.deltaTime * 10f);
+        }
     }
 
     private void Move()

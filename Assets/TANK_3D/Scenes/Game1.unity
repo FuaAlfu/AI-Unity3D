@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8e614404ba71b45a99f635ce538aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankTurret: {fileID: 569152434}
   currentSpeed: 0
   targetSpeed: 0
   rotationSpeed: 0
@@ -902,6 +903,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b, type: 3}
   m_PrefabInstance: {fileID: 530446746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &569152434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4941956155288272047, guid: 52dea6f7e3957cc48980826b43f0974f, type: 3}
+  m_PrefabInstance: {fileID: 1964595593}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &604750323
 PrefabInstance:
