@@ -247,6 +247,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
   m_PrefabInstance: {fileID: 102769155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &107261450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5df8a91b32ca2924d9cc4ce1a05e7019, type: 3}
+  m_PrefabInstance: {fileID: 1598580669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &107261451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107261450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbd9ce8a13f2bf4f850943751133c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!1001 &120636681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,11 +345,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankTurret: {fileID: 569152434}
-  currentSpeed: 0
-  targetSpeed: 0
-  rotationSpeed: 0
-  maxForwardSpeed: 0
-  maxBackwardSpeed: 0
+  currentSpeed: 1
+  targetSpeed: 1
+  rotationSpeed: 0.5
+  maxForwardSpeed: 2
+  maxBackwardSpeed: 2
 --- !u!1001 &168012940
 PrefabInstance:
   m_ObjectHideFlags: 0
