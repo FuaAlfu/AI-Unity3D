@@ -9,7 +9,7 @@ using UnityEngine;
 public class Fsm : MonoBehaviour
 {
     protected Transform playerTransform;
-    protected Vector3 destinathinPos;
+    protected Vector3 destinationPos;
     protected GameObject[] wonderPoints;
     // Start is called before the first frame update
     void Start()

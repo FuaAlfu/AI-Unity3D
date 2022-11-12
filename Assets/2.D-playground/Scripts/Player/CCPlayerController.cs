@@ -34,7 +34,5 @@ public class CCPlayerController : MonoBehaviour
       //  if(Input.GetKeyDown(KeyCode.RightArrow))
         controller.Move(Vector3.right * moveSpeed * Time.deltaTime);
         //controller.Move(Vector3.right * direction * moveSpeed * Time.deltaTime);
-
-
     }
 }
