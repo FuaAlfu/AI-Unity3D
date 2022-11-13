@@ -25,11 +25,24 @@ public class EnemyTank : Fsm
 
     [SerializeField]
     private float distanceToInititateAnAttack = 10.1f;
+
+    [SerializeField]
+    private GameObject enemyTankTurret;
+
+    [SerializeField]
+    private Transform enemyTankBulletSpawnPos;
+
+    private Transform turret;
+    private Transform bulletSpawnPos;
+
     protected override void Initialize()
     {
         // base.Initialize();
         wonderPoints = GameObject.FindGameObjectsWithTag("wonderPoint");
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        turret = enemyTankTurret.transform;
+        bulletSpawnPos = enemyTankBulletSpawnPos;
+
         FindNextDestination();
     }
 
@@ -72,7 +85,23 @@ public class EnemyTank : Fsm
         }
         MoveAndRotateTowardsDestination();
     }
-    private void StateAttack() { }
+    private void StateAttack() 
+    {
+        destinationPos = playerTransform.position;
+        float distanceToAttack = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToAttack < 20f)
+        {
+            MoveAndRotateTowardsDestination();
+            currentState = FSMState.Attack;
+        }
+        else if(distanceToAttack >= 20f)
+        {
+            currentState = FSMState.Patrol;
+        }
+
+        Quaternion newRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
+        turret.rotation = Quaternion.Slerp(turret.rotation, newRotation,Time.deltaTime * 10f);
+    }
     private void StateDead() { }
 
     private void FindNextDestination()
